@@ -1,0 +1,7 @@
+{
+    "watchForFileChanges":false,
+    "defaultCommandTimeout": 100000,
+    "env": {
+      "base_url": "http://localhost:8080"
+    }
+}
