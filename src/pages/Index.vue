@@ -6,9 +6,9 @@
         {{ user.name }} {{ user.last_name }} {{ user.second_last_name }}</span
       >
     </div>
-    <div class="text-h5">Acciones</div>
+    <!-- <div class="text-h5">Acciones</div> -->
     <q-separator spaced />
-    <div class="row q-col-gutter-sm q-mt-lg">
+    <!-- <div class="row q-col-gutter-sm q-mt-lg">
       <div
         class="home-card pointer col-xs-12 col-sm-12 col-md-6"
         @click="$router.push('/project')"
@@ -71,7 +71,7 @@
           </q-card-section>
         </q-card>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

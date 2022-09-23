@@ -6,10 +6,10 @@
           <div class="col-xs-12 col-sm-12 col-md-12">
             <div style="width: 300px"></div>
             <q-img spinner-color="white" width="150" />
-            <q-img src="~assets/infotec.png" width="150" />
+            <q-img src="~assets/ucad.png" width="150" />
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12">
-            <h5>Seguimiento y Gestión de Actividades</h5>
+            <h5>Ingenieria en Software</h5>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12">
             <q-input

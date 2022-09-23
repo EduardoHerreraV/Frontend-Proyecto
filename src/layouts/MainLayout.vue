@@ -2,12 +2,12 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar style="height: 60px">
-        <img src="~/assets/icon_infotec.png" alt="" style="width: 35px;" class="q-mr-lg">
+        <img src="~/assets/icon.png" alt="" style="width: 50px;" class="q-mr-lg">
         <q-toolbar-title class="pointer text-h6" @click="$router.push('/')">
-          Seguimiento y Gestión de Actividades
+          Ingenieria en Software
         </q-toolbar-title>
         <div class="row items-center q-mr-xl">
-          <q-btn
+          <!-- <q-btn
             dense
             flat
             color="white"
@@ -44,7 +44,7 @@
                 </q-item>
               </q-list>
             </q-menu>
-          </q-btn>
+          </q-btn> -->
         </div>
         <div class="row items-center">
           <q-btn
