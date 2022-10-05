@@ -14,7 +14,7 @@
         <q-btn @click="confirmsalir = true" round size="sm" color="primary" class="q-ml-sm float-right" icon="arrow_back">
           <q-tooltip>Salir</q-tooltip>
         </q-btn>
-        <q-btn @click="$router.push('project/create')" round size="sm" color="positive" class="q-ml-sm float-right btnCreate" icon="add">
+        <q-btn @click="$router.push('user/create')" round size="sm" color="positive" class="q-ml-sm float-right btnCreate" icon="add">
           <q-tooltip>Nuevo registro</q-tooltip>
         </q-btn>
         </div>

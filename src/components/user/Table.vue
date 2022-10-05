@@ -168,7 +168,7 @@ export default {
       })
     },
     edit (id) {
-      this.$router.push(`project/${id}/edit`)
+      this.$router.push(`user/${id}/edit`)
     }
   }
 }
