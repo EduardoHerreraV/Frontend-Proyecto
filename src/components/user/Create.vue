@@ -239,8 +239,7 @@
 </template>
 
 <script>
-import * as EmployeeService from 'src/services/EmployeeService'
-import * as ProjectService from 'src/services/ProjectService'
+import * as UserService from 'src/services/UserService'
 import { notifyError, notifySuccess } from 'src/utils/notify'
 export default {
   data () {
@@ -263,7 +262,7 @@ export default {
     }
   },
   created () {
-    EmployeeService.findUser()
+    UserService.findUser()
       .then((data) => {
         this.not_assigned_psp = data.employees
       })
@@ -277,7 +276,7 @@ export default {
       this.$refs.visitor_form.validate().then((valid) => {
         if (valid) {
           const form = { ...this.project }
-          ProjectService.store(form).then((response) => {
+          UserService.store(form).then((response) => {
             notifySuccess('Se creó el registro con éxito')
             this.$router.push('/project')
           })
@@ -290,25 +289,25 @@ export default {
       this.$refs.project_form.validate().then((valid) => {
         if (valid) {
           const search = this.psp.rfc
-          EmployeeService.checkPSPExistence({ params: { search } })
+          UserService.checkPSPExistence({ params: { search } })
             .then((data) => {
               this.psp_existence = data.existence
               if (this.psp_existence === true) {
                 console.log(data.psp)
                 this.project.psp_id = data.psp.id
                 const projectForm = this.project
-                ProjectService.store(projectForm).then((response) => {
+                UserService.store(projectForm).then((response) => {
                   console.log(response)
                   this.$router.push('/project')
                 })
               } else {
                 const pspForm = this.psp
-                EmployeeService.store(pspForm)
+                UserService.store(pspForm)
                   .then((employee) => {
                     console.log(employee)
                     this.project.psp_id = employee.id
                     const projectForm = this.project
-                    ProjectService.store(projectForm).then((response) => {
+                    UserService.store(projectForm).then((response) => {
                       console.log(response)
                       this.$router.push('/project')
                     })

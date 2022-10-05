@@ -11,35 +11,17 @@
             dense
             flat
             color="white"
-            label="Registro"
+            label="Control escolar"
             icon-right="arrow_drop_down"
             no-caps
             class="q-ml-sm q-px-sm"
           >
             <q-menu>
               <q-list dense class="text-grey-8" style="min-width: 100px">
-                <q-item @click.native="$router.push('/project').catch(err => {})" clickable>
-                <q-item-section>Proyecto</q-item-section>
+                <q-item @click.native="$router.push('/user').catch(err => {})" clickable>
+                <q-item-section>Registrar nuevo Alumno</q-item-section>
                   <q-item-section avatar>
                     <q-icon color="primary" name="person" />
-                  </q-item-section>
-                </q-item>
-                <q-item @click.native="$router.push('/initiative').catch(err => {})" clickable>
-                <q-item-section>Iniciativa</q-item-section>
-                  <q-item-section avatar>
-                    <q-icon color="primary" name="person" />
-                  </q-item-section>
-                </q-item>
-                <q-item @click.native="$router.push('/Task').catch(err => {})" clickable>
-                  <q-item-section>Tarea</q-item-section>
-                  <q-item-section avatar>
-                    <q-icon color="primary" name="article" />
-                  </q-item-section>
-                </q-item>
-                <q-item @click.native="$router.push('/task-assignment').catch(err => {})" clickable>
-                  <q-item-section>Asignar Tarea</q-item-section>
-                  <q-item-section avatar>
-                    <q-icon color="primary" name="article"/>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -51,7 +33,7 @@
             dense
             flat
             color="white"
-            :label="user.name + ' ' + user.last_name + ' ' + user.second_last_name"
+            :label="user.name"
             icon-right="arrow_drop_down"
             no-caps
             class="q-ml-sm q-px-sm avatar"

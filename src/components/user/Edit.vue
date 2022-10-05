@@ -227,7 +227,7 @@
 </template>
 
 <script>
-import * as ProjectService from 'src/services/ProjectService'
+import * as UserService from 'src/services/UserService'
 import { notifySuccess, notifyError } from 'src/utils/notify'
 export default {
   data () {
@@ -248,7 +248,7 @@ export default {
   created () {
     const { id } = this.$route.params
     this.$q.loading.show()
-    ProjectService.edit(id).then((data) => {
+    UserService.edit(id).then((data) => {
       this.project = data
       this.$q.loading.hide()
     }).catch(() => {
@@ -276,7 +276,7 @@ export default {
     update () {
       const project = { ...this.project }
       const { id } = this.$route.params
-      ProjectService.update(project, id).then((response) => {
+      UserService.update(project, id).then((response) => {
         if (response.success) {
           notifySuccess('Se actualizó el registro con éxito')
           this.$router.push('/project')

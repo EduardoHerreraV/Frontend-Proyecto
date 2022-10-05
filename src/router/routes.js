@@ -1,4 +1,5 @@
-import Project from './partials/Project'
+import User from './partials/User'
+
 const routes = [
   {
     path: '/',
@@ -6,7 +7,7 @@ const routes = [
     children: [
       { path: '', name: 'index', component: () => import('pages/Index.vue') },
       { path: 'test', name: 'test', component: () => import('pages/Test.vue') },
-      ...Project
+      ...User
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('sci_token')) {

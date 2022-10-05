@@ -19,20 +19,17 @@
       </template>
       <template v-slot:body="props">
         <q-tr :props="props" no-hover>
-          <q-td key="psp" :props="props">
-             {{ props.row.psp_name + ' ' + props.row.psp_last_name + ' ' + props.row.psp_second_last_name }}
-          </q-td>
-          <q-td key="contract_number" :props="props">
-            {{ props.row.contract_number }}
-          </q-td>
           <q-td key="name" :props="props">
-            {{ props.row.name }}
+             {{ props.row.name }}
           </q-td>
-          <q-td key="contract_start_date" :props="props">
-            {{ props.row.contract_start_date }}
+          <q-td key="id_number" :props="props">
+            {{ props.row.id_number }}
           </q-td>
-          <q-td key="contract_end_date" :props="props">
-            {{ props.row.contract_end_date }}
+          <q-td key="group" :props="props">
+            {{ props.row.group }}
+          </q-td>
+          <q-td key="carrer" :props="props">
+            {{ props.row.carrer }}
           </q-td>
           <q-td key="actions" :props="props">
           <q-btn-group>
@@ -70,7 +67,7 @@
 </template>
 <script>
 
-import * as ProjectService from 'src/services/ProjectService'
+import * as UserService from 'src/services/UserService'
 import { notifySuccess } from 'src/utils/notify'
 
 export default {
@@ -92,43 +89,37 @@ export default {
       search: '',
       separator: 'vertical',
       visibleColumns: [
-        'psp',
         'name',
-        'contract_number',
-        'contract_start_date',
-        'contract_end_date',
+        'id_number',
+        'group',
+        'period',
+        'carrer',
         'actions'
       ],
       columns: [
         {
-          name: 'psp',
+          name: 'name',
           align: 'center',
-          label: 'Administrador de Proyecto',
+          label: 'Nombre Alumno',
           field: 'psp'
         },
         {
-          name: 'contract_number',
+          name: 'id_number',
           align: 'center',
-          label: 'Número de proyecto',
+          label: 'Número de matricula',
           field: 'contract_number'
         },
         {
-          name: 'name',
+          name: 'group',
           align: 'center',
-          label: 'Nombre de proyecto',
+          label: 'Grupo',
           field: 'name'
         },
         {
-          name: 'contract_start_date',
+          name: 'carrer',
           align: 'center',
-          label: 'Inicio de Contrato',
+          label: 'Carrera',
           field: 'contract_start_date'
-        },
-        {
-          name: 'contract_end_date',
-          align: 'center',
-          label: 'Final de Contrato',
-          field: 'contract_end_date'
         },
         {
           name: 'actions',
@@ -154,7 +145,7 @@ export default {
       const { page, rowsPerPage } = props.pagination
       const { search } = this
       this.loading = true
-      ProjectService.index({ params: { page, rowsPerPage, search } }).then((project) => {
+      UserService.index({ params: { page, rowsPerPage, search } }).then((project) => {
         this.data = project.data
         this.pagination.rowsPerPage = project.per_page
         this.pagination.page = project.current_page
@@ -165,7 +156,7 @@ export default {
       })
     },
     destroy (deleteOption) {
-      ProjectService.destroy(deleteOption).then(() => {
+      UserService.destroy(deleteOption).then(() => {
         this.confirm = false
         this.onRequest({
           pagination: this.pagination,

@@ -1,21 +1,21 @@
 <template>
   <div class="q-pa-xl q-gutter-y-md">
-    <div class="q-mb-lg">
+    <!-- <div class="q-mb-lg">
       <q-breadcrumbs>
         <q-breadcrumbs-el icon="home" to="/" />
         <q-breadcrumbs-el label="Inicio" to="/"/>
-        <q-breadcrumbs-el label="Proyecto" />
+        <q-breadcrumbs-el label="Control de Alumnos" />
       </q-breadcrumbs>
-    </div>
+    </div> -->
     <q-card>
       <q-card-section>
         <div class="text-h6">
-          Proyecto
+          Control de Alumnos
         <q-btn @click="confirmsalir = true" round size="sm" color="primary" class="q-ml-sm float-right" icon="arrow_back">
           <q-tooltip>Salir</q-tooltip>
         </q-btn>
         <q-btn @click="$router.push('project/create')" round size="sm" color="positive" class="q-ml-sm float-right btnCreate" icon="add">
-          <q-tooltip>Crear</q-tooltip>
+          <q-tooltip>Nuevo registro</q-tooltip>
         </q-btn>
         </div>
       </q-card-section>
