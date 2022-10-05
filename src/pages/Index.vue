@@ -7,7 +7,7 @@
       >
     </div>
     <!-- <div class="text-h5">Acciones</div> -->
-    <q-separator spaced />
+    <!-- <q-separator spaced /> -->
     <!-- <div class="row q-col-gutter-sm q-mt-lg">
       <div
         class="home-card pointer col-xs-12 col-sm-12 col-md-6"

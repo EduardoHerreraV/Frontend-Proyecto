@@ -1,7 +1,4 @@
-import TaskAssignment from './partials/TaskAssigment'
 import Project from './partials/Project'
-import Initiative from './partials/Initiative'
-import Task from './partials/Task'
 const routes = [
   {
     path: '/',
@@ -9,10 +6,7 @@ const routes = [
     children: [
       { path: '', name: 'index', component: () => import('pages/Index.vue') },
       { path: 'test', name: 'test', component: () => import('pages/Test.vue') },
-      ...TaskAssignment,
-      ...Project,
-      ...Initiative,
-      ...Task
+      ...Project
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('sci_token')) {

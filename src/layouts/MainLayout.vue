@@ -7,7 +7,7 @@
           Ingenieria en Software
         </q-toolbar-title>
         <div class="row items-center q-mr-xl">
-          <!-- <q-btn
+          <q-btn
             dense
             flat
             color="white"
@@ -44,7 +44,7 @@
                 </q-item>
               </q-list>
             </q-menu>
-          </q-btn> -->
+          </q-btn>
         </div>
         <div class="row items-center">
           <q-btn

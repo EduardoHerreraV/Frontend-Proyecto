@@ -113,7 +113,7 @@ export default {
 }
 </script> -->
 
-<template>
+<!-- <template>
   <div class="q-pa-md">
     <div class="col-sm-12 col-md-12">
       <q-select
@@ -208,4 +208,4 @@ export default {
     }
   }
 }
-</script>
+</script> -->
