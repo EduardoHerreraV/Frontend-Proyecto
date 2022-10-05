@@ -1,8 +1,8 @@
 {
-  "name": "SistemaGestiondeVisitas",
+  "name": "SistemaGestiondeUCAD",
   "version": "0.0.1",
-  "description": "Sistema de Seguimiento y Gestión de Actividades para INFOTEC",
-  "productName": "Sistema Gestion de Visitas",
+  "description": "Sistema Gestion de UCAD",
+  "productName": "Plataforma UCAD",
   "author": "wolf3000",
   "private": true,
   "scripts": {
