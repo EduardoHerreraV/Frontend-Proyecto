@@ -1,12 +1,5 @@
 <template>
   <div class="q-pa-xl q-gutter-y-md">
-    <!-- <div class="q-mb-lg">
-      <q-breadcrumbs>
-        <q-breadcrumbs-el icon="home" to="/" />
-        <q-breadcrumbs-el label="Inicio" to="/"/>
-        <q-breadcrumbs-el label="Control de Alumnos" />
-      </q-breadcrumbs>
-    </div> -->
     <q-card>
       <q-card-section>
         <div class="text-h6">

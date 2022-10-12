@@ -1,12 +1,5 @@
 <template>
   <div class="q-pa-xl q-gutter-y-md">
-    <!-- <div class="q-mb-lg">
-      <q-breadcrumbs>
-        <q-breadcrumbs-el icon="home" to="/" />
-        <q-breadcrumbs-el label="Inicio" to="/" />
-        <q-breadcrumbs-el label="Registrar Proyecto" />
-      </q-breadcrumbs>
-    </div> -->
     <q-card>
       <q-card-section>
         <div class="text-h6">
@@ -42,7 +35,7 @@
               <q-input label="Confirma Contraseña" v-model="form.password" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div> -->
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Correo electrónico" v-model="form.email" round outlined />
+              <q-input label="Correo electrónico" v-model="form.email" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
           </div>
         </q-form>
