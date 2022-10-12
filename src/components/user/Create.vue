@@ -10,7 +10,7 @@
     <q-card>
       <q-card-section>
         <div class="text-h6">
-          Registrar nuevo Alumno
+          Registrar Nuevo Alumno
         </div>
       </q-card-section>
     </q-card>
@@ -24,10 +24,10 @@
               <q-input label="Nombre del alumno" v-model="form.name" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Número de matricula" v-model="form.id_number" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+              <q-input square outlined label="Número de matricula" v-model="form.id_number" mask="########" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Grupo" v-model="form.group" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+              <q-input label="Grupo" v-model="form.group" mask="XX##XX" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input label="Carrera" v-model="form.carrer" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
@@ -42,7 +42,7 @@
               <q-input label="Confirma Contraseña" v-model="form.password" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div> -->
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Correo electrónico" v-model="form.email" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+              <q-input label="Correo electrónico" v-model="form.email" round outlined />
             </div>
           </div>
         </q-form>
