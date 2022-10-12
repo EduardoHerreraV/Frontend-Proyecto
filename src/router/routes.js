@@ -1,4 +1,5 @@
 import User from './partials/User'
+import IndexCatalogs from 'src/router/admin/index'
 
 const routes = [
   {
@@ -7,7 +8,8 @@ const routes = [
     children: [
       { path: '', name: 'index', component: () => import('pages/Index.vue') },
       { path: 'test', name: 'test', component: () => import('pages/Test.vue') },
-      ...User
+      ...User,
+      ...IndexCatalogs
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('sci_token')) {
@@ -23,11 +25,6 @@ const routes = [
     path: '/login',
     component: () => import('pages/Login.vue'),
     beforeEnter: (to, from, next) => {
-      // if (sessionStorage.getItem('sci_token')) {
-      //   next('/')
-      // } else {
-      //   next()
-      // }
       if (to.name !== 'Login' && sessionStorage.getItem('sci_token')) next('/')
       next()
     },
