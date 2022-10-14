@@ -37,15 +37,6 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input label="Correo electrónico" v-model="form.email" round outlined />
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-4">
-              <q-input
-                class="email_confirm"
-                v-model="form.email_confirm"
-                square
-                outlined
-                label="Confirmar correo electrónico"
-              />
-            </div>
           </div>
         </q-form>
           <q-card-actions align="right">
