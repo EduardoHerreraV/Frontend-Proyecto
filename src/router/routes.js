@@ -1,6 +1,7 @@
 import User from './partials/User'
 import IndexCatalogs from 'src/router/admin/index'
 import Groups from 'src/router/admin/groups/groups'
+import Degree from 'src/router/admin/Catalogs/degree/degree'
 
 const routes = [
   {
@@ -11,7 +12,8 @@ const routes = [
       { path: 'test', name: 'test', component: () => import('pages/Test.vue') },
       ...User,
       ...IndexCatalogs,
-      ...Groups
+      ...Groups,
+      ...Degree
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('sci_token')) {
