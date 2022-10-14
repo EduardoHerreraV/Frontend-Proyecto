@@ -2,6 +2,7 @@ import User from './partials/User'
 import IndexCatalogs from 'src/router/admin/index'
 import Groups from 'src/router/admin/groups/groups'
 import Degree from 'src/router/admin/Catalogs/degree/degree'
+import Matter from 'src/router/admin/Catalogs/matter/matter'
 
 const routes = [
   {
@@ -13,7 +14,8 @@ const routes = [
       ...User,
       ...IndexCatalogs,
       ...Groups,
-      ...Degree
+      ...Degree,
+      ...Matter
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('sci_token')) {
