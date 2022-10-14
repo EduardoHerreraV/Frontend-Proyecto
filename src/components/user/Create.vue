@@ -20,20 +20,24 @@
               <q-input square outlined label="Número de matricula" v-model="form.id_number" mask="########" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Grupo" v-model="form.group" mask="XX##XX" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+              <q-select label="Grupo" outlined v-model="form.group" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="id" option-label="name" :options="catalogs.groups" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Carrera" v-model="form.carrer" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+                <q-select label="Carrera" outlined v-model="form.carrer" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="id" option-label="name" :options="catalogs.degrees" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input label="Usuario" v-model="form.username" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Contraseña" v-model="form.password" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+              <q-input label="Contraseña" :type="isPwdA ? 'password' : 'text'" v-model="form.password" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']">
+                <template v-slot:append>
+                        <q-icon
+                          :name="isPwdA ? 'visibility_off' : 'visibility'"
+                          class="cursor-pointer"
+                          @click="isPwdA = !isPwdA"/>
+                      </template>
+              </q-input>
             </div>
-            <!-- <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Confirma Contraseña" v-model="form.password" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
-            </div> -->
             <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input label="Correo electrónico" v-model="form.email" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
@@ -96,9 +100,18 @@ export default {
         password: '',
         email: ''
       },
+      isPwdA: true,
+      password: false,
       confirmsalir: false,
       confirmCancel: false
     }
+  },
+  created () {
+    const catalogsConfiguration = { degrees: true, groups: true }
+    this.$q.loading.show()
+    this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
+      this.$q.loading.hide()
+    })
   },
   methods: {
     store () {
@@ -112,6 +125,16 @@ export default {
       }).finally(() => {
         this.$q.loading.hide()
       })
+    }
+  },
+  computed: {
+    catalogs: {
+      get () {
+        return this.$store.state.catalogs
+      },
+      set (val) {
+        this.$store.commit('catalogs/setCatalogs', val)
+      }
     }
   }
 }

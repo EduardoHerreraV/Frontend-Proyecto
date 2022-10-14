@@ -14,24 +14,13 @@
     <q-form ref="project_form" @submit.prevent="() => {}">
       <div class="row q-col-gutter-sm q-mb-md">
         <div class="col-xs-12 col-sm-6 col-md-6">
-          <q-input label="Nombre del grupo" v-model="form.name" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+          <q-input label="Nombre del grupo" v-model="form.name" mask="XX##XX" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
         </div>
       </div>
     </q-form>
       <q-card-actions align="right">
-    <q-btn
-      flat
-      @click="confirmCancel = true"
-      label="Cancelar"
-      color="negative"
-    />
-    <q-btn
-    class="btnAccept"
-      flat
-      label="Actualizar"
-      color="positive"
-      @click="update()"
-    />
+    <q-btn label="Cancelar" flat @click="confirmCancel = true" color="negative"/>
+    <q-btn label="Actualizar" class="btnAccept" flat color="positive"  @click="update()"/>
       </q-card-actions>
   </q-card-section>
   <q-dialog v-model="confirmCancel" persistent>
@@ -46,13 +35,7 @@
       </q-card-section>
       <q-card-actions align="center">
         <q-btn flat label="No" color="negative" v-close-popup />
-        <q-btn
-          flat
-          label="Si"
-          color="positive"
-          v-close-popup
-          @click="$router.push('/groups')"
-        />
+        <q-btn label="Si" flat  color="positive" v-close-popup @click="$router.push('/groups')" />
       </q-card-actions>
     </q-card>
   </q-dialog>
