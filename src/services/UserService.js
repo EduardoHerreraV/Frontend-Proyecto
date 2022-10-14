@@ -34,3 +34,8 @@ export const destroy = (id) => {
   const URL = `${basePath}/${id}`
   return axiosInstance.delete(URL).then((res) => res.data)
 }
+
+export const updatePasswordUser = (payload) => {
+  const URL = '/api/users/update-password-user'
+  return axiosInstance.put(URL, payload).then((res) => res.data)
+}
