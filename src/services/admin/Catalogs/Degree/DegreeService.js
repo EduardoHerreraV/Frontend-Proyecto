@@ -11,17 +11,17 @@ const basePath = '/api/degree'
 
 export const index = (payload) => {
   const URL = basePath
-  return axiosInstance.get(URL, payload).then((res) => res.data.specialization)
+  return axiosInstance.get(URL, payload).then((res) => res.data.degree)
 }
 
 export const edit = (id) => {
   const URL = `${basePath}/${id}/edit`
-  return axiosInstance.get(URL).then((res) => res.data.specialty)
+  return axiosInstance.get(URL).then((res) => res.data.degree)
 }
 
 export const destroy = (id) => {
   const URL = `${basePath}/${id}`
-  return axiosInstance.delete(URL).then((res) => res.data.specialty)
+  return axiosInstance.delete(URL).then((res) => res.data.degree)
 }
 
 export const store = (payload) => {

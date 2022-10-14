@@ -80,14 +80,21 @@ export default {
       search: '',
       separator: 'vertical',
       visibleColumns: [
-        'name'
+        'name',
+        'actions'
       ],
       columns: [
         {
           name: 'name',
           align: 'center',
-          label: 'Nombre Alumno',
+          label: 'Nombre de la Licenciatura',
           field: 'psp'
+        },
+        {
+          name: 'actions',
+          align: 'center',
+          label: 'Acciones',
+          field: 'actions'
         }
       ]
     }
@@ -129,7 +136,7 @@ export default {
       })
     },
     edit (id) {
-      this.$router.push(`user/${id}/edit`)
+      this.$router.push(`degree/${id}/edit`)
     }
   }
 }

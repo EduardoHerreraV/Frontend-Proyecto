@@ -1,12 +1,5 @@
 <template>
     <div class="q-pa-xl q-gutter-y-md">
-      <!-- <div class="q-mb-lg">
-        <q-breadcrumbs>
-          <q-breadcrumbs-el icon="home" to="/" />
-          <q-breadcrumbs-el label="Inicio" to="/" />
-          <q-breadcrumbs-el label="Registrar Proyecto" />
-        </q-breadcrumbs>
-      </div> -->
       <q-card>
         <q-card-section>
           <div class="text-h6">
@@ -58,7 +51,7 @@
                 label="Si"
                 color="positive"
                 v-close-popup
-                @click="$router.push('/user')"
+                @click="$router.push('/degree')"
               />
             </q-card-actions>
           </q-card>
@@ -85,7 +78,7 @@ export default {
       this.$q.loading.show()
       DegreeService.store(form).then(() => {
         notifySuccess('Se creo correctamente el registro')
-        this.$router.push('/user')
+        this.$router.push('/degree')
       }).catch((err) => {
         notifyError(err)
       }).finally(() => {

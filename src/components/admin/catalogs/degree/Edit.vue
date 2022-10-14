@@ -51,7 +51,7 @@
           label="Si"
           color="positive"
           v-close-popup
-          @click="$router.push('/user')"
+          @click="$router.push('/degree')"
         />
       </q-card-actions>
     </q-card>
@@ -91,7 +91,7 @@ export default {
       const { id } = this.$route.params
       DegreeService.update(form, id).then(() => {
         notifySuccess('Se actualizo correctamente el registro')
-        this.$router.push('/user')
+        this.$router.push('/degree')
         return false
       }).catch((err) => {
         notifyError(err)
