@@ -20,10 +20,10 @@
               <q-input square outlined label="Número de matricula" v-model="form.id_number" mask="########" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-select label="Grupo" outlined v-model="form.group" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="id" option-label="name" :options="catalogs.groups" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+              <q-select label="Grupo" outlined v-model="form.group" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="name" option-label="name" :options="catalogs.groups" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
-                <q-select label="Carrera" outlined v-model="form.carrer" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="id" option-label="name" :options="catalogs.degrees" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+                <q-select label="Carrera" outlined v-model="form.carrer" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="name" option-label="name" :options="catalogs.degrees" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input label="Usuario" v-model="form.username" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
