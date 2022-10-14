@@ -101,25 +101,25 @@ export default {
           name: 'name',
           align: 'center',
           label: 'Nombre Alumno',
-          field: 'psp'
+          field: 'name'
         },
         {
           name: 'id_number',
           align: 'center',
           label: 'Número de matricula',
-          field: 'contract_number'
+          field: 'id_number'
         },
         {
           name: 'group',
           align: 'center',
           label: 'Grupo',
-          field: 'name'
+          field: 'group'
         },
         {
           name: 'carrer',
           align: 'center',
           label: 'Carrera',
-          field: 'contract_start_date'
+          field: 'carrer'
         },
         {
           name: 'actions',
@@ -130,8 +130,6 @@ export default {
 
       ]
     }
-  },
-  created () {
   },
   mounted () {
     // get initial data from server (1st page)

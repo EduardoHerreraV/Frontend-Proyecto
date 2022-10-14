@@ -58,7 +58,7 @@
 </template>
 <script>
 
-import * as UserService from 'src/services/UserService'
+import * as GroupService from 'src/services/admin/Catalogs/Group/GroupService'
 import { notifySuccess } from 'src/utils/notify'
 
 export default {
@@ -81,10 +81,6 @@ export default {
       separator: 'vertical',
       visibleColumns: [
         'name',
-        'id_number',
-        'group',
-        'period',
-        'carrer',
         'actions'
       ],
       columns: [
@@ -92,7 +88,7 @@ export default {
           name: 'name',
           align: 'center',
           label: 'Nombre del grupo',
-          field: 'psp'
+          field: 'name'
         },
         {
           name: 'actions',
@@ -102,8 +98,6 @@ export default {
         }
       ]
     }
-  },
-  created () {
   },
   mounted () {
     // get initial data from server (1st page)
@@ -117,7 +111,7 @@ export default {
       const { page, rowsPerPage } = props.pagination
       const { search } = this
       this.loading = true
-      UserService.index({ params: { page, rowsPerPage, search } }).then((project) => {
+      GroupService.index({ params: { page, rowsPerPage, search } }).then((project) => {
         this.data = project.data
         this.pagination.rowsPerPage = project.per_page
         this.pagination.page = project.current_page
@@ -128,7 +122,7 @@ export default {
       })
     },
     destroy (deleteOption) {
-      UserService.destroy(deleteOption).then(() => {
+      GroupService.destroy(deleteOption).then(() => {
         this.confirm = false
         this.onRequest({
           pagination: this.pagination,

@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import * as UserService from 'src/services/UserService'
+import * as GroupService from 'src/services/admin/Catalogs/Group/GroupService'
 import { notifyError, notifySuccess } from 'src/utils/notify'
 export default {
   data () {
@@ -77,7 +77,7 @@ export default {
     store () {
       const form = { ...this.form }
       this.$q.loading.show()
-      UserService.store(form).then(() => {
+      GroupService.store(form).then(() => {
         notifySuccess('Se creo correctamente el registro')
         this.$router.push('/groups')
       }).catch((err) => {

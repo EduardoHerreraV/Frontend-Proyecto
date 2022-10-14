@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import * as UserService from 'src/services/UserService'
+import * as GroupService from 'src/services/admin/Catalogs/Group/GroupService'
 import { notifySuccess, notifyError } from 'src/utils/notify'
 export default {
   data () {
@@ -76,7 +76,7 @@ export default {
   created () {
     const { id } = this.$route.params
     this.$store.dispatch('catalogs/setCatalogs').then(() => {
-      UserService.edit(id).then((data) => {
+      GroupService.edit(id).then((data) => {
         this.form = data
         this.$q.loading.hide()
       }).catch(() => {
@@ -89,7 +89,7 @@ export default {
     update () {
       const form = { ...this.form }
       const { id } = this.$route.params
-      UserService.update(form, id).then(() => {
+      GroupService.update(form, id).then(() => {
         notifySuccess('Se actualizo correctamente el registro')
         this.$router.push('/groups')
         return false
