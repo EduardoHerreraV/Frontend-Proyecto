@@ -1,8 +1,10 @@
 import User from './partials/User'
-import IndexCatalogs from 'src/router/admin/index'
-import Groups from 'src/router/admin/groups/groups'
+import IndexCatalogs from 'src/router/admin/Catalogs/index'
+import Groups from 'src/router/admin/Catalogs/groups/groups'
 import Degree from 'src/router/admin/Catalogs/degree/degree'
 import Matter from 'src/router/admin/Catalogs/matter/matter'
+import Modules from 'src/router/admin/Catalogs/modules/modules'
+import Profiles from 'src/router/admin/Catalogs/profiles/profiles'
 
 const routes = [
   {
@@ -15,7 +17,9 @@ const routes = [
       ...IndexCatalogs,
       ...Groups,
       ...Degree,
-      ...Matter
+      ...Matter,
+      ...Modules,
+      ...Profiles
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('sci_token')) {

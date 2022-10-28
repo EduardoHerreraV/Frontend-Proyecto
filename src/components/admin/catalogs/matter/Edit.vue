@@ -19,19 +19,8 @@
       </div>
     </q-form>
       <q-card-actions align="right">
-    <q-btn
-      flat
-      @click="confirmCancel = true"
-      label="Cancelar"
-      color="negative"
-    />
-    <q-btn
-    class="btnAccept"
-      flat
-      label="Actualizar"
-      color="positive"
-      @click="update()"
-    />
+    <q-btn label="Cancelar" flat @click="confirmCancel = true" color="negative" />
+    <q-btn label="Actualizar" class="btnAccept" flat color="positive" @click="update()"/>
       </q-card-actions>
   </q-card-section>
   <q-dialog v-model="confirmCancel" persistent>
@@ -46,13 +35,7 @@
       </q-card-section>
       <q-card-actions align="center">
         <q-btn flat label="No" color="negative" v-close-popup />
-        <q-btn
-          flat
-          label="Si"
-          color="positive"
-          v-close-popup
-          @click="$router.push('/matter')"
-        />
+        <q-btn label="Si" flat color="positive" v-close-popup @click="$router.push('/matter')" />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -61,8 +44,10 @@
 </template>
 
 <script>
+
 import * as MatterService from 'src/services/admin/Catalogs/Matter/MatterService'
 import { notifySuccess, notifyError } from 'src/utils/notify'
+
 export default {
   data () {
     return {
@@ -99,4 +84,5 @@ export default {
     }
   }
 }
+
 </script>
