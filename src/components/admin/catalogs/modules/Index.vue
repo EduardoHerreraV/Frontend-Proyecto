@@ -7,7 +7,7 @@
         <q-btn @click="confirmsalir = true" round size="sm" color="primary" class="q-ml-sm float-right" icon="arrow_back">
           <q-tooltip>Salir</q-tooltip>
         </q-btn>
-        <q-btn @click="$router.push('matter/create')" round size="sm" color="positive" class="q-ml-sm float-right btnCreate" icon="add">
+        <q-btn @click="$router.push('modules/create')" round size="sm" color="positive" class="q-ml-sm float-right btnCreate" icon="add">
           <q-tooltip>Nuevo registro</q-tooltip>
         </q-btn>
         </div>
@@ -27,13 +27,7 @@
           </q-card-section>
           <q-card-actions align="center">
             <q-btn flat label="No" color="negative" v-close-popup />
-            <q-btn
-              flat
-              label="Si"
-              color="positive"
-              v-close-popup
-              @click="$router.push('/')"
-            />
+            <q-btn flat label="Si" color="positive" v-close-popup @click="$router.push('/')"/>
           </q-card-actions>
           </q-card>
         </q-dialog>

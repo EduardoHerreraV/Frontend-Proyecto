@@ -38,7 +38,7 @@
           </q-card-section>
           <q-card-actions align="center">
             <q-btn flat label="No" color="negative" v-close-popup />
-            <q-btn label="Si" @click="$router.push('/matter')" flat color="positive" v-close-popup />
+            <q-btn label="Si" @click="$router.push('/profiles')" flat color="positive" v-close-popup />
           </q-card-actions>
         </q-card>
       </q-dialog>

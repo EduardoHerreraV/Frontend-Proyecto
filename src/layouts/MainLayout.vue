@@ -11,7 +11,7 @@
             <q-menu>
               <q-list dense class="text-grey-8" style="min-width: 100px">
                 <q-item @click.native="$router.push('/user').catch(err => {})" clickable>
-                <q-item-section>Registrar nuevo Alumno</q-item-section>
+                <q-item-section>Registrar nuevo Usuario</q-item-section>
                   <q-item-section avatar>
                     <q-icon color="primary" name="person" />
                   </q-item-section>

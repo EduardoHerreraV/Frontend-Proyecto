@@ -80,6 +80,19 @@
             </q-card-section>
           </q-card>
       </div>
+      <div class="col-xs-12 col-sm-12 col-md-4" @click="$router.push('/user')">
+          <q-card class="row items-center justify-between">
+            <q-card-section>
+              <div class="text-h5 q-mt-sm q-mb-xs">Usuarios</div>
+              <div class="text-caption text-grey">
+                Ir a catálogo de Usuarios
+              </div>
+            </q-card-section>
+            <q-card-section>
+              <q-icon name="person" size="4.1em" color="primary" />
+            </q-card-section>
+          </q-card>
+      </div>
     </div>
     <q-dialog v-model="confirmsalir" persistent>
         <q-card>

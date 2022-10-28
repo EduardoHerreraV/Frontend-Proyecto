@@ -22,14 +22,8 @@
           <q-td key="name" :props="props">
              {{ props.row.name }}
           </q-td>
-          <q-td key="id_number" :props="props">
-            {{ props.row.id_number }}
-          </q-td>
-          <q-td key="group" :props="props">
-            {{ props.row.group }}
-          </q-td>
-          <q-td key="carrer" :props="props">
-            {{ props.row.carrer }}
+          <q-td key="profile" :props="props">
+            {{ props.row.profile }}
           </q-td>
           <q-td key="actions" :props="props">
           <q-btn-group>
@@ -90,36 +84,21 @@ export default {
       separator: 'vertical',
       visibleColumns: [
         'name',
-        'id_number',
-        'group',
-        'period',
-        'carrer',
+        'profile',
         'actions'
       ],
       columns: [
         {
           name: 'name',
           align: 'center',
-          label: 'Nombre Alumno',
+          label: 'Nombre de usuario',
           field: 'name'
         },
         {
-          name: 'id_number',
+          name: 'profile',
           align: 'center',
-          label: 'Número de matricula',
-          field: 'id_number'
-        },
-        {
-          name: 'group',
-          align: 'center',
-          label: 'Grupo',
-          field: 'group'
-        },
-        {
-          name: 'carrer',
-          align: 'center',
-          label: 'Carrera',
-          field: 'carrer'
+          label: 'Tipo de perfil',
+          field: 'profile'
         },
         {
           name: 'actions',

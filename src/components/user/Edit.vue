@@ -3,7 +3,7 @@
     <q-card>
       <q-card-section>
         <div class="text-h6">
-          Datos del Alumno
+          Datos del Usuario
         </div>
       </q-card-section>
     </q-card>
@@ -14,28 +14,16 @@
         <q-form ref="project_form" @submit.prevent="() => {}">
           <div class="row q-col-gutter-sm q-mb-md">
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Nombre del alumno" v-model="form.name" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input square outlined label="Número de matricula" v-model="form.id_number" mask="########" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-select label="Grupo" outlined v-model="form.group" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="name" option-label="name" :options="catalogs.groups" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
-                <q-select label="Carrera" outlined v-model="form.carrer" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="name" option-label="name" :options="catalogs.degrees" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+              <q-input label="Nombre del usuario" v-model="form.name" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input label="Usuario" v-model="form.username" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
-            <!-- <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Contraseña" v-model="form.password" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
-            </div> -->
-            <!-- <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Confirma Contraseña" v-model="form.password" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
-            </div> -->
             <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input label="Correo electrónico" v-model="form.email" round outlined />
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <q-select label="Tipo de perfil" outlined v-model="form.profile" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="name" option-label="name" :options="catalogs.profiles" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
           </div>
         </q-form>
@@ -89,20 +77,16 @@ export default {
     return {
       form: {
         name: '',
-        id_number: '',
-        group: '',
-        carrer: '',
         username: '',
-        password: '',
         email: '',
-        email_confirm: ''
+        profile: ''
       },
       confirmsalir: false,
       confirmCancel: false
     }
   },
   created () {
-    const catalogsConfiguration = { degrees: true, groups: true }
+    const catalogsConfiguration = { profiles: true }
     const { id } = this.$route.params
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       UserService.edit(id).then((data) => {

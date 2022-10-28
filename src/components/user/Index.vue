@@ -3,7 +3,7 @@
     <q-card>
       <q-card-section>
         <div class="text-h6">
-          Control de Alumnos
+          Control de usuarios
         <q-btn @click="confirmsalir = true" round size="sm" color="primary" class="q-ml-sm float-right" icon="arrow_back">
           <q-tooltip>Salir</q-tooltip>
         </q-btn>

@@ -3,7 +3,7 @@
     <q-card>
       <q-card-section>
         <div class="text-h6">
-          Registrar Nuevo Alumno
+          Registrar Nuevo Usuario
         </div>
       </q-card-section>
     </q-card>
@@ -14,16 +14,7 @@
         <q-form ref="project_form" @submit.prevent="() => {}">
           <div class="row q-col-gutter-sm q-mb-md">
             <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Nombre del alumno" v-model="form.name" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input square outlined label="Número de matricula" v-model="form.id_number" mask="########" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-select label="Grupo" outlined v-model="form.group" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="name" option-label="name" :options="catalogs.groups" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
-                <q-select label="Carrera" outlined v-model="form.carrer" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="name" option-label="name" :options="catalogs.degrees" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+              <q-input label="Nombre del usuario" v-model="form.name" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input label="Usuario" v-model="form.username" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
@@ -31,32 +22,21 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input label="Contraseña" :type="isPwdA ? 'password' : 'text'" v-model="form.password" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']">
                 <template v-slot:append>
-                        <q-icon
-                          :name="isPwdA ? 'visibility_off' : 'visibility'"
-                          class="cursor-pointer"
-                          @click="isPwdA = !isPwdA"/>
-                      </template>
+                  <q-icon :name="isPwdA ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="isPwdA = !isPwdA"/>
+                </template>
               </q-input>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input label="Correo electrónico" v-model="form.email" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <q-select label="Tipo de perfil" outlined v-model="form.profile" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="name" option-label="name" :options="catalogs.profiles" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+            </div>
           </div>
         </q-form>
           <q-card-actions align="right">
-        <q-btn
-          flat
-          @click="confirmCancel = true"
-          label="Cancelar"
-          color="negative"
-        />
-        <q-btn
-        class="btnAccept"
-          flat
-          label="Guardar"
-          color="positive"
-          @click="store()"
-        />
+            <q-btn label="Cancelar" flat @click="confirmCancel = true" color="negative" />
+        <q-btn label="Guardar" class="btnAccept" flat color="positive" @click="store()"/>
           </q-card-actions>
       </q-card-section>
       <q-dialog v-model="confirmCancel" persistent>
@@ -93,12 +73,10 @@ export default {
     return {
       form: {
         name: '',
-        id_number: '',
-        group: '',
-        carrer: '',
         username: '',
         password: '',
-        email: ''
+        email: '',
+        profile: ''
       },
       isPwdA: true,
       password: false,
@@ -107,7 +85,7 @@ export default {
     }
   },
   created () {
-    const catalogsConfiguration = { degrees: true, groups: true }
+    const catalogsConfiguration = { profiles: true }
     this.$q.loading.show()
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide()
