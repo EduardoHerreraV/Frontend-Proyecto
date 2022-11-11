@@ -2,9 +2,9 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar style="height: 60px">
-        <img src="~/assets/icon.png" alt="" style="width: 50px;" class="q-mr-lg">
+        <img src="~/assets/logo_white.png" alt="" style="width: 100px;" class="q-mr-lg">
         <q-toolbar-title class="pointer text-h6" @click="$router.push('/')">
-          Ingenieria en Software
+          Universidad UCAD
         </q-toolbar-title>
         <div class="row items-center q-mr-xl">
           <q-btn label="Control escolar" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
