@@ -68,6 +68,15 @@ export default {
   props: {
     audit: Function
   },
+  async mounted () {
+    // get initial data from server (1st page)
+    await this.$q.loading.show()
+    await this.onRequest({
+      pagination: this.pagination,
+      filter: undefined
+    })
+    await this.$q.loading.hide()
+  },
   data () {
     return {
       editOption: '',
@@ -108,14 +117,6 @@ export default {
         }
       ]
     }
-  },
-  created () {
-  },
-  mounted () {
-    this.onRequest({
-      pagination: this.pagination,
-      filter: undefined
-    })
   },
   methods: {
     onRequest (props) {

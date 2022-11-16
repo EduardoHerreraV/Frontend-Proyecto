@@ -21,6 +21,41 @@
             </div>
           </div>
         </q-form>
+        <template>
+            <span style="margin: 30px 0 10px 0">Selecciona los permisos para el perfil </span>
+            <q-card class="my-card col-xs-12 col-sm-12 col-md-12">
+                <q-card-section>
+                    <div class="col-xs-12 col-sm-12 col-md-12" v-for="item in modules" :key="item.id">
+                        <q-banner rounded class="bg-grey-3">
+                         <q-item-label>Modulo de la aplicación: {{item.name}} </q-item-label>
+                        </q-banner>
+
+                        <div class="row ">
+                            <div
+                            v-for="permission in item.permissions"
+                            :key="permission.id"
+                            class="col-lg-4 q-pa-sm"
+                            >
+                            <q-checkbox
+                                :val="permission.id"
+                                v-model="form.permissions"
+                                :label="permission.name"
+                            />
+                            </div>
+                        </div>
+                    <div class="q-px-sm"></div>
+                    <div class="q-pa-md q-gutter-md">
+                      <q-linear-progress
+                        :key="size"
+                        :size="size"
+                        :value="progress"
+                        color="primary"
+                      />
+                    </div>
+                    </div>
+                </q-card-section>
+            </q-card>
+        </template>
           <q-card-actions align="right">
         <q-btn label="Cancelar" flat @click="confirmCancel = true" color="negative" />
         <q-btn label="Guardar" @click="update()" class="btnAccept" flat color="positive"/>
@@ -49,30 +84,30 @@
 <script>
 
 import * as DataService from 'src/services/admin/Catalogs/Profiles/ProfilesService'
+import * as ModulesService from 'src/services/admin/Catalogs/Modules/ModulesService'
 import { notifyError, notifySuccess } from 'src/utils/notify'
 
 export default {
+  async created () {
+    // get initial data -> modules permissions
+    this.$q.loading.show()
+    await this.getModules()
+    await this.setProfileData()
+    this.$q.loading.hide()
+  },
   data () {
     return {
+      size: 'xs',
+      progress: 1.0,
+      modules: [],
       form: {
         name: '',
-        key: ''
+        key: '',
+        permissions: []
       },
       confirmsalir: false,
       confirmCancel: false
     }
-  },
-  created () {
-    const { id } = this.$route.params
-    this.$store.dispatch('catalogs/setCatalogs').then(() => {
-      DataService.edit(id).then((data) => {
-        this.form = data
-        this.$q.loading.hide()
-      }).catch(() => {
-        this.$q.loading.hide()
-      })
-      this.$q.loading.hide()
-    })
   },
   methods: {
     update () {
@@ -84,6 +119,22 @@ export default {
         return false
       }).catch((err) => {
         notifyError(err)
+      })
+    },
+    async getModules () {
+      await ModulesService.index().then((modules) => {
+        this.modules = modules
+      }).catch(() => {
+        notifyError()
+      })
+    },
+    async setProfileData () {
+      const { id } = this.$route.params
+      DataService.edit(id).then(async ({ profile }) => {
+        this.form = await profile
+        this.form.permissions = profile.permissions.map((permission) => permission.id) // set only id
+      }).catch(() => {
+        notifyError()
       })
     }
   }

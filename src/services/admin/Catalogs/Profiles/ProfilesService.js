@@ -11,17 +11,17 @@ const basePath = '/api/profiles'
 
 export const index = (payload) => {
   const URL = basePath
-  return axiosInstance.get(URL, payload).then((res) => res.data.profiles)
+  return axiosInstance.get(URL, payload).then((res) => res.data)
 }
 
 export const edit = (id) => {
   const URL = `${basePath}/${id}/edit`
-  return axiosInstance.get(URL).then((res) => res.data.profiles)
+  return axiosInstance.get(URL).then((res) => res.data)
 }
 
 export const destroy = (id) => {
   const URL = `${basePath}/${id}`
-  return axiosInstance.delete(URL).then((res) => res.data.profiles)
+  return axiosInstance.delete(URL).then((res) => res.data)
 }
 
 export const store = (payload) => {
