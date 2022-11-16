@@ -99,7 +99,7 @@ export default {
     async store () {
       const form = { ...this.form }
       DataService.store(form).then(() => {
-        notifySuccess()
+        notifySuccess('Se actualizo correctamente el registro')
         this.$router.push('/profiles')
       }).catch(() => {
         notifyError()
