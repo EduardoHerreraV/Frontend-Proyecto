@@ -20,7 +20,7 @@
             </q-menu>
           </q-btn>
         </div>
-        <div class="row items-center q-mr-xl">
+        <div class="row items-center q-mr-xl" clickable >
           <q-btn label="Control escolar" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
             <q-menu>
               <q-list dense class="text-grey-8" style="min-width: 100px">
@@ -34,7 +34,7 @@
             </q-menu>
           </q-btn>
         </div>
-        <div class="row items-center q-mr-xl">
+        <div class="row items-center q-mr-xl" clickable>
           <q-btn label="Administrador" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
             <q-menu>
               <q-list dense class="text-grey-8" style="min-width: 100px">
@@ -84,38 +84,6 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
-    <q-dialog v-model="password">
-      <q-card style="min-width: 400px">
-        <q-card-section align="center">
-          <div class="text-h6">Cambiar contraseña</div>
-          <br>
-          <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Contraseña Actual" :type="isPwdA ? 'password' : 'text'" v-model="form.password" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']">
-                <template v-slot:append>
-                        <q-icon
-                          :name="isPwdA ? 'visibility_off' : 'visibility'"
-                          class="cursor-pointer"
-                          @click="isPwdA = !isPwdA"/>
-                      </template>
-              </q-input>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-6">
-              <q-input label="Contraseña Nueva" :type="isPwdB ? 'password' : 'text'" v-model="form.Newpassword" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']">
-                <template v-slot:append>
-                        <q-icon
-                          :name="isPwdB ? 'visibility_off' : 'visibility'"
-                          class="cursor-pointer"
-                          @click="isPwdB = !isPwdB"/>
-                      </template>
-              </q-input>
-              </div>
-        </q-card-section>
-        <q-card-actions align="center">
-          <q-btn flat label="Cancelar" color="negative" v-close-popup />
-          <q-btn flat label="Actualizar" color="positive" @click="store()" class="btnConfirmLogout" v-close-popup />
-        </q-card-actions>
-      </q-card>
-    </q-dialog>
   </q-layout>
 </template>
 
@@ -127,10 +95,11 @@ export default {
   name: 'MainLayout',
   data () {
     return {
-      form: {
-        password: '',
-        Newpassword: ''
-      },
+      superAdminSection: [
+        'admin-view'
+        // 'alumno-view',
+        // 'profesor-view'
+      ],
       isPwdA: true,
       isPwdB: true,
       CloseSession: false,

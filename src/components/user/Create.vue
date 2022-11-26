@@ -30,7 +30,7 @@
               <q-input label="Correo electrónico" v-model="form.email" round outlined :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
-                <q-select label="Tipo de perfil" outlined v-model="form.profile" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="name" option-label="name" :options="catalogs.profiles" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+                <q-select label="Tipo de perfil" outlined v-model="form.profile" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="id" option-label="name" :options="catalogs.profiles" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
           </div>
         </q-form>
@@ -76,7 +76,7 @@ export default {
         username: '',
         password: '',
         email: '',
-        profile: ''
+        profile: []
       },
       isPwdA: true,
       password: false,
