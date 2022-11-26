@@ -23,24 +23,13 @@
               <q-input label="Correo electrónico" v-model="form.email" round outlined />
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
-                <q-select label="Tipo de perfil" outlined v-model="form.profile" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="id" option-label="name" :options="catalogs.profiles" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
+                <q-select label="Tipo de perfil" outlined v-model="form.profile_id" use-input hide-selected fill-input input-debounce="0" emit-value map-options option-value="id" option-label="name" :options="catalogs.profiles" :rules="[(val) => !!val || 'Este campo es obligatorio']"/>
             </div>
           </div>
         </q-form>
           <q-card-actions align="right">
-        <q-btn
-          flat
-          @click="confirmCancel = true"
-          label="Cancelar"
-          color="negative"
-        />
-        <q-btn
-        class="btnAccept"
-          flat
-          label="Actualizar"
-          color="positive"
-          @click="update()"
-        />
+        <q-btn flat @click="confirmCancel = true" label="Cancelar" color="negative"/>
+        <q-btn class="btnAccept" flat label="Actualizar" color="positive" @click="update()"/>
           </q-card-actions>
       </q-card-section>
       <q-dialog v-model="confirmCancel" persistent>
@@ -55,13 +44,7 @@
           </q-card-section>
           <q-card-actions align="center">
             <q-btn flat label="No" color="negative" v-close-popup />
-            <q-btn
-              flat
-              label="Si"
-              color="positive"
-              v-close-popup
-              @click="$router.push('/user')"
-            />
+            <q-btn flat label="Si" color="positive" v-close-popup @click="$router.push('/user')"/>
           </q-card-actions>
         </q-card>
       </q-dialog>
@@ -79,7 +62,7 @@ export default {
         name: '',
         username: '',
         email: '',
-        profile: ''
+        profile_id: ''
       },
       confirmsalir: false,
       confirmCancel: false

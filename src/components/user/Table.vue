@@ -23,7 +23,7 @@
              {{ props.row.name }}
           </q-td>
           <q-td key="profile" :props="props">
-            {{ props.row.profile }}
+            {{ props.row.profile_id }}
           </q-td>
           <q-td key="actions" :props="props">
           <q-btn-group>

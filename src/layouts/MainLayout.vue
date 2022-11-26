@@ -7,7 +7,7 @@
           Universidad UCAD
         </q-toolbar-title>
         <div class="row items-center q-mr-xl">
-          <q-btn label="Alumnos" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
+          <q-btn v-if="canShow('alumno-view')" label="Alumnos" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
             <q-menu>
               <q-list dense class="text-grey-8" style="min-width: 100px">
                 <q-item @click.native="$router.push('/user').catch(err => {})" clickable>
@@ -21,7 +21,7 @@
           </q-btn>
         </div>
         <div class="row items-center q-mr-xl" clickable >
-          <q-btn label="Control escolar" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
+          <q-btn v-if="canShow('profesor-view')" label="Profesor" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
             <q-menu>
               <q-list dense class="text-grey-8" style="min-width: 100px">
                 <q-item @click.native="$router.push('/user').catch(err => {})" clickable>
@@ -35,7 +35,7 @@
           </q-btn>
         </div>
         <div class="row items-center q-mr-xl" clickable>
-          <q-btn label="Administrador" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
+          <q-btn v-if="canShow('admin-view')" label="Administrador" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
             <q-menu>
               <q-list dense class="text-grey-8" style="min-width: 100px">
                 <q-item @click.native="$router.push('/catalogs').catch(err => {})" clickable>
