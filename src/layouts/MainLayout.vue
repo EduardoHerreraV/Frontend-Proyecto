@@ -51,19 +51,19 @@
         <div class="row items-center">
           <q-btn :label="user.name" dense flat color="white" icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm avatar" >
             <q-menu>
-              <q-list dense class="text-grey-8 btnLogout" style="min-width: 100px">
+              <q-list dense class="text-grey-8 btnLogout" style="min-width: 200px">
                 <q-item @click="CloseSession = true" clickable>
                   <q-item-section>Cerrar sesión</q-item-section>
                   <q-item-section avatar>
                     <q-icon color="primary" name="exit_to_app" />
                   </q-item-section>
                 </q-item>
-                <q-item @click="password = true" clickable>
+                <!-- <q-item @click="password = true" clickable>
                   <q-item-section>Cambiar contraseña</q-item-section>
                   <q-item-section avatar>
                     <q-icon color="primary" name="person" />
                   </q-item-section>
-                </q-item>
+                </q-item> -->
               </q-list>
             </q-menu>
           </q-btn>
