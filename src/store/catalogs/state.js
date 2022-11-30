@@ -2,6 +2,8 @@ export default function () {
   return {
     degrees: [],
     groups: [],
-    profiles: []
+    profiles: [],
+    matters: []
+
   }
 }

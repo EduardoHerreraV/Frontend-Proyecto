@@ -15,7 +15,7 @@
     <br>
     <br>
     <div class="row q-col-gutter-lg">
-      <div class="col-xs-12 col-sm-12 col-md-4" @click="$router.push('/degree')">
+      <!-- <div class="col-xs-12 col-sm-12 col-md-4" @click="$router.push('/degree')">
           <q-card class="row items-center justify-between">
             <q-card-section>
               <div class="text-h5 q-mt-sm q-mb-xs">Licenciaturas</div>
@@ -27,8 +27,8 @@
               <q-icon name="person" size="4.1em" color="primary" />
             </q-card-section>
           </q-card>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-4" @click="$router.push('/groups')">
+      </div> -->
+      <!-- <div class="col-xs-12 col-sm-12 col-md-4" @click="$router.push('/groups')">
           <q-card class="row items-center justify-between">
             <q-card-section>
               <div class="text-h5 q-mt-sm q-mb-xs">Grupos</div>
@@ -40,7 +40,7 @@
               <q-icon name="person" size="4.1em" color="primary" />
             </q-card-section>
           </q-card>
-      </div>
+      </div> -->
       <div class="col-xs-12 col-sm-12 col-md-4" @click="$router.push('/matter')">
           <q-card class="row items-center justify-between">
             <q-card-section>

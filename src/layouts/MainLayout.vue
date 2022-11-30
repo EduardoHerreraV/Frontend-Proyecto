@@ -10,7 +10,7 @@
           <q-btn v-if="canShow('alumno-view')" label="Alumnos" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
             <q-menu>
               <q-list dense class="text-grey-8" style="min-width: 100px">
-                <q-item @click.native="$router.push('/user').catch(err => {})" clickable>
+                <q-item @click.native="$router.push('/student').catch(err => {})" clickable>
                 <q-item-section>Ver calificaciones</q-item-section>
                   <q-item-section avatar>
                     <q-icon color="primary" name="person" />
@@ -24,8 +24,8 @@
           <q-btn v-if="canShow('profesor-view')" label="Profesor" dense flat color="white"  icon-right="arrow_drop_down" no-caps class="q-ml-sm q-px-sm">
             <q-menu>
               <q-list dense class="text-grey-8" style="min-width: 100px">
-                <q-item @click.native="$router.push('/user').catch(err => {})" clickable>
-                <q-item-section>Registrar nuevo Usuario</q-item-section>
+                <q-item @click.native="$router.push('/professor').catch(err => {})" clickable>
+                <q-item-section>Subir calificaciones</q-item-section>
                   <q-item-section avatar>
                     <q-icon color="primary" name="person" />
                   </q-item-section>

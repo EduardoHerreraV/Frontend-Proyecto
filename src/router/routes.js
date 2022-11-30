@@ -5,6 +5,8 @@ import Degree from 'src/router/admin/Catalogs/degree/degree'
 import Matter from 'src/router/admin/Catalogs/matter/matter'
 import Modules from 'src/router/admin/Catalogs/modules/modules'
 import Profiles from 'src/router/admin/Catalogs/profiles/profiles'
+import Students from './partials/Students'
+import Professor from './partials/Professor'
 
 const routes = [
   {
@@ -19,7 +21,9 @@ const routes = [
       ...Degree,
       ...Matter,
       ...Modules,
-      ...Profiles
+      ...Profiles,
+      ...Students,
+      ...Professor
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('sci_token')) {
